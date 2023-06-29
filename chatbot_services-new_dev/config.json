@@ -1,0 +1,11 @@
+{
+    "global" : "http://172.20.219.226",
+    "convo" : "http://172.20.7.68",
+    "bonds" : "http://172.20.210.39",
+    "globaldb": "globalDB",
+    "convodb": "convoDB",
+    "bondsdb": "bondsDB",
+    "host": "172.20.139.14",
+    "username": "root",
+    "password": "bestchatbot"
+}

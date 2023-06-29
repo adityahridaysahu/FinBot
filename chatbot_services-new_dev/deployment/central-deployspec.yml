@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: chatbot-central1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: chatbot-central1
+  template:
+    metadata:
+      labels:
+        app: chatbot-central1
+    spec:
+      containers:
+        - name: central-api
+          image: 239065919983.dkr.ecr.us-east-1.amazonaws.com/chatbotfrontend:central_new
+          ports:
+            - containerPort: 4000
+        

@@ -1,0 +1,29 @@
+apiVersion: apiextensions.k8s.io/v1
+kind: CustomResourceDefinition
+metadata:
+ name: innodbclusters.mysql.oracle.com
+spec:
+ group: mysql.oracle.com
+ versions:
+   - name: v2
+     served: true
+     storage: true
+     schema:
+       openAPIV3Schema:
+         type: object
+         required: ["spec"]
+         properties:
+           metadata:
+             type: object
+             properties:
+               name:
+                 type: string
+                 maxLength: 40
+           spec:
+             type: object
+             required: ["secretName"]
+             properties:
+               secretName:
+                 type: string
+                 description: "Name of a generic type Secret containing root/default account password"
+		...

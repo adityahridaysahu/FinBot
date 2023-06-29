@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: chatbot-bonds1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: chatbot-bonds1
+  template:
+    metadata:
+      labels:
+        app: chatbot-bonds1
+    spec:
+      containers:
+        - name: bonds-api
+          image: 239065919983.dkr.ecr.us-east-1.amazonaws.com/chatbotfrontend:bonds_new
+          ports:
+            - containerPort: 9000        

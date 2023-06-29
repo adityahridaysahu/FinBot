@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: my-app
+  template:
+    metadata:
+      labels:
+        app: my-app
+    spec:
+      containers:
+        - name: central-api
+          image: 620137615303.dkr.ecr.us-east-1.amazonaws.com/test-docker:central
+          # image: 55c02709a300e7e3738adad8f4ba1a0d79ab0a64e941adaff202ed58a59e5e8e:latest
+          ports:
+            - containerPort: 4000
+        - name: convo-api
+          # image: 620137615303.dkr.ecr.us-east-1.amazonaws.com/test-docker:convo
+          image: 12ee90f68b6e:latest
+          ports:
+            - containerPort: 8000
+        - name: bonds-api
+          # image: 620137615303.dkr.ecr.us-east-1.amazonaws.com/test-docker:bonds
+          image: f3c95cd43e3d:latest
+          ports:
+            - containerPort: 9000
+        - name: global-api
+          # image: 620137615303.dkr.ecr.us-east-1.amazonaws.com/test-docker:global
+          image: 72022c788c26:latest
+          ports:
+            - containerPort: 7000
